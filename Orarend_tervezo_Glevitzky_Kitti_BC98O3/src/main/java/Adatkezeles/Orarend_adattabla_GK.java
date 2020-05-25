@@ -1,45 +1,45 @@
 package Adatkezeles;
 
-import controller.Oc;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.List;
 
-/*Példa az adatbázis kezelésre*/
+/**
+ * Adatbazis kezeles
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
+@Builder
 @Entity
-
 public class Orarend_adattabla_GK {
-    Oc oc= new Oc();
+    @GeneratedValue
+    @Id
+    private Long id;
 
-        @GeneratedValue
-        @Id
-        private Long id;
+    private String targy;
 
-        @Column()
-        private String targy;
+    private String nap;
 
-        @Column()
-        private String nap;
+    private String ora;
 
-        @Column()
-        private String ora;
+    private Integer evfolyam;
 
-        @Column()
-        private String evfolyam;
+    private String osztaly;
 
-        @Column()
-        private String osztaly;
-
-
+    public boolean napValid() {
+        List<String> napok = List.of("hétfő", "kedd", "szerda", "csütörtök", "péntek");
+        return napok.contains(getNap());
     }
 
+    public boolean evfolyamValid() {
+        return getEvfolyam() >= 1 &&
+                getEvfolyam() <= 13;
+    }
+}

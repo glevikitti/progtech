@@ -1,5 +1,4 @@
 package model;
-
 public class Orarendterv {
 
     public String kiirtargy(String a) {

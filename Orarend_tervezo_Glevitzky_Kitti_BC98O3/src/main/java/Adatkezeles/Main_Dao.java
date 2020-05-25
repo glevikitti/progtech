@@ -9,15 +9,8 @@ public class Main_Dao {
         Injector injector = Guice.createInjector(new PersistenceModule("Orarend_adattabla_GK"));
 
         Oc oc= new Oc();
+        Dao dao2;
 
-        Orarend_adattabla_GK orarend = Orarend_adattabla_GK.builder()
-                .targy(oc.miatargy)
-                .nap(oc.mianap)
-                .ora(oc.miaora)
-                .evfolyam(oc.miaevfolyam)
-                .osztaly(oc.miaosztaly)
-                .build();
-        System.out.println(orarend);
 
 
 

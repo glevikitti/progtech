@@ -18,3 +18,4 @@ public class PersistenceModule extends AbstractModule {
     }
 
 }
+
